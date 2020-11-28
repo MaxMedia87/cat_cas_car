@@ -9,12 +9,10 @@ $(function () {
       const type = $container.data('type');
 
       $.ajax({
-        url: '/articles/10/like/' + type,
+        url: '/articles/10/like/like',
         method: 'POST'
       }).then(function (data) {
-        $container.data('type', type === 'like' ? 'dislike' : 'like');
-
-        //$container.find('.fa-heart').toggleClass('far fas');
+        $container.find('.fa-heart').removeClass('far').addClass('fas');
         $container.find('[data-item=likesCount]').text(data.likes);
       });
     });
